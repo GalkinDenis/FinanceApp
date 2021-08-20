@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Finance app</string>
+    <string name="explain">Enter the ticker id</string>
+    <string name="getSearch">Search</string>
+    <string name="enterTicker">Enter a valid ticker</string>
+    <string name="addToFavorites">Go fav</string>
+    <string name="showHistory">Show history</string>
+    <string name="showDetails">Details</string>
+    <string name="removeFromFavorites">Remove</string>
+    <string name="price">Price:</string>
+    <string name="trend_list">Trending List</string>
+    <string name="search_stocks">Search</string>
+    <string name="favorites_list">Favorites</string>
+    <string name="changed">Changed:</string>
+
+    <string name="divident">Dividents per year:</string>
+    <string name="priceAtView">price: </string>
+    <string name="high_price">High price</string>
+    <string name="low_price">Low price</string>
+    <string name="close_price">Close price</string>
+    <string name="date">Date</string>
+    <string name="ticker_of_company">Ticker</string>
+
+    <string name="R_string1">Приложение(Kotlin, Java) обзора акций - на основе API "Yahoo Finance-3.15.0".</string>
+    <string name="R_string2">Описание:</string>
+    <string name="R_string3">- применение RX Java 2;</string>
+    <string name="R_string4">- применение Dagger 2;</string>
+    <string name="R_string5">- применение API - Yahoo Finance-3.15.0;</string>
+    <string name="R_string6">- применение RecyclerView;</string>
+    <string name="R_string7">- применение паттерна MVP;</string>
+    <string name="R_string8">- нижняя навигация для фрагментов;</string>
+    <string name="R_string9">- переход между активити с Intent;</string>
+    <string name="R_string10">- портретные и ландшафтные макеты, работа с реконфигурацией экрана.</string>
+    <string name="R_string11">- применение SharedPreferences.</string>
+    <string name="R_string12">- работа с жизненным циклом.</string>
+    <string name="R_string13">Функционал:</string>
+    <string name="R_string14">- добавление и удаление акции из избранного;</string>
+    <string name="R_string15">- экран детлизации с по каждой акции;</string>
+    <string name="R_string16">- поиск акции по тикеру в Yahoo Finance;</string>
+    <string name="R_string17">- просмотр исторической сводки по каждой акции;</string>
+    <string name="R_string18">- кеширование избранного посредствам временных массивов;</string>
+    <string name="R_string19">- сохранение избранного после закрытия приложения в SharedPreferences.</string>
+
+    <string name="E_string1">App(Kotlin, Java) to view a stocks - basing on API "Yahoo Finance-3.15.0".</string>
+    <string name="E_string2">Description:</string>
+    <string name="E_string3">- implements RX Java 2;</string>
+    <string name="E_string4">- implements Dagger 2;</string>
+    <string name="E_string5">- work of lifecycle;</string>
+    <string name="E_string6">- implements RecyclerView;</string>
+    <string name="E_string7">- implements MVP patterns;</string>
+    <string name="E_string8">- bottom navigation for fragments;</string>
+    <string name="E_string9">- passing between activities by Intent.</string>
+    <string name="E_string10">- portrait and landscape layouts, work with screen reconfig.</string>
+    <string name="E_string11">- implements SharedPreferences.</string>
+    <string name="E_string12">- implements API - Yahoo Finance-3.15.0.</string>
+    <string name="E_string13">Functionality:</string>
+    <string name="E_string14">- caching of favorites;</string>
+    <string name="E_string15">- saving favorites after close app in SharedPreferences;</string>
+    <string name="E_string16">- viewing historical summary by each stock;</string>
+    <string name="E_string17">- adding and removing stocks from favorites;</string>
+    <string name="E_string18">- activity of detailing by each stocks;</string>
+    <string name="E_string19">- search stocks by ticker in Yahoo Finance.</string>
+
+    <string name="startApp">Start</string>
+    <string name="setEng">Eng</string>
+    <string name="setRus">Rus</string>
+    <string name="web">financequotes-api.com</string>
+    <string name="git">Исходники на GitHub</string>
+</resources>

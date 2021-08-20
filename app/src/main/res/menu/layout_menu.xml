@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/trend_list"
+        android:icon="@drawable/ic_linear_layout"
+        android:title="@string/trend_list"/>
+    <item
+        android:id="@+id/search_page"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/search_stocks"/>
+    <item
+        android:id="@+id/favorites_list"
+        android:icon="@drawable/ic_baseline_grade_24"
+        android:title="@string/favorites_list"/>
+</menu>

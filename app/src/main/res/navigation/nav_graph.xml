@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/trend_list">
+
+    <fragment
+        android:id="@+id/trend_list"
+        android:name="ru.denis.financeApp.trend_fragment.TrendingListFragment"
+        android:label="TrendingListFragment" />
+    <fragment
+        android:id="@+id/search_page"
+        android:name="ru.denis.financeApp.search_fragment.SearchStock"
+        android:label="SearchStock" />
+    <fragment
+        android:id="@+id/favorites_list"
+        android:name="ru.denis.financeApp.favorites_fragment.Favorites"
+        android:label="Favorites" />
+</navigation>

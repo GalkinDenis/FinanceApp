@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alfa_slab_one</item>
+        <item>@font/cinzel</item>
+        <item>@font/cinzel_bold</item>
+        <item>@font/julius_sans_one</item>
+        <item>@font/roboto_slab</item>
+        <item>@font/space_mono</item>
+    </array>
+</resources>
