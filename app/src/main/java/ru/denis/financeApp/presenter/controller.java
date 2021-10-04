@@ -3,9 +3,6 @@ package ru.denis.financeApp.presenter;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
-
-import java.io.IOException;
-
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -148,5 +145,20 @@ public class controller extends Activity {
     //Запрос данных из кеша.
     public String setListForFav(Integer i, String id) {
         return modelView.setListFromCache(i, id);
+    }
+
+    //Вывод тоаста с сообщением об отсутствии интернета.
+    public void showToastFromSearch() {
+        viewsSearch.showToast();
+    }
+
+    //Вывод тоаста с сообщением об отсутствии интернета.
+    public void showToastFromTrend() {
+        trendView.showToast();
+    }
+
+    //Вывод тоаста с сообщением об отсутствии интернета.
+    public void showToastFromHistory() {
+        viewsHistory.showToast();
     }
 }
