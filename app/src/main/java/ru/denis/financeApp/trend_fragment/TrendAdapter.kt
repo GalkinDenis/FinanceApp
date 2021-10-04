@@ -2,14 +2,19 @@ package ru.denis.financeApp.trend_fragment;
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import ru.denis.financeApp.R
 import ru.denis.financeApp.databinding.ItemBinding
+import ru.denis.financeApp.interfaces.TrendInterface
 import ru.denis.financeApp.model.tickerPlusLabel
 import ru.denis.financeApp.presenter.controller
 
 //Адаптер популярных акций.
-class TrendAdapter(private val controller: controller, private var dataSet: Array<Array<String>>) :
+class TrendAdapter(
+    private val controller: controller,
+    private var dataSet: Array<Array<String>>
+) :
     RecyclerView.Adapter<TrendAdapter.TrendViewHolder>() {
 
     //Определение элементов списка.
@@ -44,11 +49,11 @@ class TrendAdapter(private val controller: controller, private var dataSet: Arra
 
         //Обработчик нажатия на копку - "Show details".
         holder.binding.details.setOnClickListener {
-            controller.controllerClickShowDetails(
-                holder.binding.details.tag as String?,
-                holder.binding.details.rootView,
-                1
-            )
+                controller.controllerClickShowDetails(
+                    holder.binding.details.tag as String?,
+                    holder.binding.details.rootView,
+                    1
+                )
         }
 
         //Обработчик нажатия на копку - "Go favorites".
