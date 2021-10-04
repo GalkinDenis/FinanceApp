@@ -62,21 +62,33 @@ public class model extends Activity implements forModel {
 
     //Запрос данных с yahoo-finance.
     @Override
-    public String[][] getDataFromYahoo() throws IOException {
-        for(int i = 0; i < tickerPlusLabel.tickers.length; i++) {
-            Stock stock = YahooFinance.get(tickerPlusLabel.tickers[i]);
-            setForTrendList[i][0] = "(" + stock.getQuote().getChangeInPercent() + "%)";
-            setForTrendList[i][1] = stock.getQuote().getPrice() + "$";
-            setForTrendList[i][2] = String.valueOf(Float.parseFloat(String.valueOf(stock.getQuote().getChange())));
-            setForTrendList[i][3] = tickerPlusLabel.tickers[i];
-            setForTrendList[i][4] = tickerPlusLabel.stockNameStack.get(tickerPlusLabel.tickers[i]);
-            setFloatValue = i+1;
-            getPercentValueOfTotalArrayVolume = (int) ((setFloatValue/tickerPlusLabel.tickers.length)*100);
-            run = Single.fromCallable(() -> getPercentValueOfTotalArrayVolume)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(db -> controller.setProgressBar(db));
+    public String[][] getDataFromYahoo() {
+        try {
+
+            for (int i = 0; i < tickerPlusLabel.tickers.length; i++) {
+                Stock stock = YahooFinance.get(tickerPlusLabel.tickers[i]);
+                setForTrendList[i][0] = "(" + stock.getQuote().getChangeInPercent() + "%)";
+                setForTrendList[i][1] = stock.getQuote().getPrice() + "$";
+                setForTrendList[i][2] = String.valueOf(Float.parseFloat(String.valueOf(stock.getQuote().getChange())));
+                setForTrendList[i][3] = tickerPlusLabel.tickers[i];
+                setForTrendList[i][4] = tickerPlusLabel.stockNameStack.get(tickerPlusLabel.tickers[i]);
+                setFloatValue = i + 1;
+                getPercentValueOfTotalArrayVolume = (int) ((setFloatValue / tickerPlusLabel.tickers.length) * 100);
+                run = Single.fromCallable(() -> getPercentValueOfTotalArrayVolume)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(db -> controller.setProgressBar(db));
+            }
+            return setForTrendList;
+        } catch (Exception e) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    //Вывод тоаста с сообщением об отсутствии интернета.
+                    controller.showToastFromTrend();
+                }
+            });
+            return new String[0][0];
         }
-        return setForTrendList;
     }
 
     //Запрос данных с yahoo-finance для добавления в избранное.
@@ -119,16 +131,27 @@ public class model extends Activity implements forModel {
     //Запрос исторической сводки с yahoo-finance.
     @Override
     public String[][] getHistory(String ticker, int id) throws IOException {
-        List<HistoricalQuote> history = YahooFinance.get(ticker).getHistory();
-        for(int i = 0; i < history.size(); i++) {
-            HistoricalQuote quote = history.get(i);
-            setForHistoryList[i][0] = quote.getSymbol();
-            setForHistoryList[i][1] = convertDate(quote.getDate());
-            setForHistoryList[i][2] = String.valueOf(quote.getHigh());
-            setForHistoryList[i][3] = String.valueOf(quote.getLow());
-            setForHistoryList[i][4] = String.valueOf(quote.getClose());
+        try {
+            List<HistoricalQuote> history = YahooFinance.get(ticker).getHistory();
+            for (int i = 0; i < history.size(); i++) {
+                HistoricalQuote quote = history.get(i);
+                setForHistoryList[i][0] = quote.getSymbol();
+                setForHistoryList[i][1] = convertDate(quote.getDate());
+                setForHistoryList[i][2] = String.valueOf(quote.getHigh());
+                setForHistoryList[i][3] = String.valueOf(quote.getLow());
+                setForHistoryList[i][4] = String.valueOf(quote.getClose());
+            }
+            return setForHistoryList;
+        } catch (Exception e) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    //Вывод тоаста с сообщением об отсутствии интернета.
+                    controller.showToastFromHistory();
+                }
+            });
         }
-        return setForHistoryList;
+        return new String[0][0];
     }
 
     //Функция форматирования даты, полученной с yahoo-finance.
@@ -151,11 +174,22 @@ public class model extends Activity implements forModel {
     //Проверка на пустую сторку в поиске и существование запрашиваемого тикера.
     @Override
     public Integer loadStock(String str) throws IOException {
-        if(!str.isEmpty() && YahooFinance.get(str) != null) {
-            return 1;
-        }else {
-            return 0;
+        try {
+            if (!str.isEmpty() && YahooFinance.get(str) != null) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (Exception e) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Вывод тоаста с сообщением об отсутствии интернета.
+                controller.showToastFromSearch();
+            }
+        });
         }
+        return -1;
     }
 }
 
