@@ -54,7 +54,7 @@ public class FindStock extends Activity implements interfaceViews {
         );
     }
 
-    //Заполнения списка вручную даными из намерения.
+    //Заполнение списка вручную даными из намерения.
     @Override
     public void loadStartList(String ticker, String[] str, int count) {
         double converter = 0;
