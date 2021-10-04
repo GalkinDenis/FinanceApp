@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import javax.inject.Inject;
 import ru.denis.financeApp.R;
 import ru.denis.financeApp.app.App;
@@ -32,6 +34,16 @@ public class historyList extends Activity implements interfaceHistory {
     TextView showClosePrice;
 
     private ProgressBar progressBar;
+
+    //Вывод тоаста с сообщением об отсутствии интернета.
+    @Override
+    public void showToast() {
+        Toast.makeText(
+                this,
+                "Отсутствует подключеие к интернету.",
+                Toast.LENGTH_LONG
+        ).show();
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
