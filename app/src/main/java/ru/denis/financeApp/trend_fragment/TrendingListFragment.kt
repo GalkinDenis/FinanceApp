@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.denis.financeApp.app.App
@@ -19,6 +20,15 @@ class TrendingListFragment : Fragment(), TrendInterface {
     @Inject lateinit var controller: controller
     private var _binding: FragmentTrendListBinding? = null
     private val binding get() = _binding!!
+
+    //Вывод тоаста с сообщением об отсутствии интернета.
+    override fun showToast() {
+        Toast.makeText(
+            context,
+            "Отсутствует подключеие к интернету.",
+            Toast.LENGTH_LONG
+        ).show()
+    }
 
     //Функция, вызываемая контроллером, для демонстрации прогресса загрузки.
     override fun setProgressBar(i: Int){
