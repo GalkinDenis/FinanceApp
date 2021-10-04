@@ -22,6 +22,15 @@ class SearchStock : Fragment(), interfaceSearch {
     private val binding get() = _binding!!
     private lateinit var enterTicker: EditText
 
+    //Вывод тоаста с сообщением об отсутствии интернета.
+    override fun showToast() {
+        Toast.makeText(
+            context,
+            "Отсутствует подключеие к интернету.",
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
     //Сохранение введенного текста в поле ввода для поиска акции по тикеру
     //в момент смены конфигурации экрана.
     override fun onSaveInstanceState(outState: Bundle) {
@@ -68,21 +77,25 @@ class SearchStock : Fragment(), interfaceSearch {
     //Метод, вызываемый контроллером(controller.java), для проверки существования запрашиваемого тикера
     // и его последующего вывода на экран или вывода соответсвущего сообщения в случаем ошибки.
     override fun findStock(ticker: String, i: Int) {
-        //Проверка на пустую строку
-        if (ticker.isNotEmpty()) {
-            //Проверка запроса на null.
-            if (i == 0) {
-                Toast.makeText(context, "Wrong request", Toast.LENGTH_LONG).show()
+        if(i != -1) {
+
+            //Проверка на пустую строку
+            if (ticker.isNotEmpty()) {
+                //Проверка запроса на null.
+                if (i == 0) {
+                    Toast.makeText(context, "Wrong request", Toast.LENGTH_LONG).show()
+                    return
+                }
+            } else {
+                Toast.makeText(context, "Field is empty", Toast.LENGTH_LONG).show()
                 return
             }
-        } else {
-            Toast.makeText(context, "Field is empty", Toast.LENGTH_LONG).show()
-            return
+            //Вывод активити найденной акции.
+            val intentFindStock = Intent("intentFindStock")
+            intentFindStock.putExtra("enter", ticker)
+            startActivity(intentFindStock)
         }
-        //Вывод активити найденной акции.
-        val intentFindStock = Intent("intentFindStock")
-        intentFindStock.putExtra("enter", ticker)
-        startActivity(intentFindStock)
+
     }
 
     override fun onDestroyView() {
