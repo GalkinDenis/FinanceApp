@@ -7,4 +7,5 @@ interface TrendInterface {
     fun find(v: String?)
     fun setAdapter(data: Array<Array<String>>)
     fun setProgressBar(i: Int)
+    fun showToast()
 }
